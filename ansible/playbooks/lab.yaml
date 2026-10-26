@@ -1,0 +1,11 @@
+- name: Install packages
+  hosts: lab
+  gather_facts: false
+  become: true
+
+  tasks:
+    - name: Install htop
+      ansible.builtin.apt:
+        cache_valid_time: 3600
+        name: "{{ packages }}"
+        state: latest
